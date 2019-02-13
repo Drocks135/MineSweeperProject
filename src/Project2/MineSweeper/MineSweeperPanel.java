@@ -64,6 +64,17 @@ public class MineSweeperPanel extends JPanel {
 					board[r][c].setEnabled(false);
 				else
 					board[r][c].setEnabled(true);
+
+				int neighborCount = 0;
+				if(!iCell.isMine()) {
+					neighborCount = game.neighboringMines(r, c);
+					if (neighborCount > 0)
+						iCell.setIsNeigboringMine(true);
+						board[r][c].setText(Integer.toString(neighborCount));
+				}
+
+
+
 			}
 	}
 

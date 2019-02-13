@@ -17,7 +17,7 @@ public class MineSweeperGame {
 	private void setEmpty() {
 		for (int r = 0; r < board.length; r++)
 			for (int c = 0; c < board[r].length; c++)
-				board[r][c] = new Cell(false, false);  // totally clear.
+				board[r][c] = new Cell(false, false, false);  // totally clear.
 	}
 
 	public Cell getCell(int row, int col) {
@@ -47,11 +47,17 @@ public class MineSweeperGame {
 	}
 
 	public int neighboringMines(int row, int col){
+		int neighborCount = 0;
 
+		for(int i = row - 1; i <= row + 1; i++)
+			for(int j = col - 1; j <= col + 1; j++)
+				if(tileIsInbounds(i, j))
+					if(board[i][j].isMine())
+						neighborCount++;
 
-
-		return 0;
+		return neighborCount;
 	}
+
 	public GameStatus getGameStatus() {
 		return status;
 	}
@@ -60,6 +66,17 @@ public class MineSweeperGame {
 		status = GameStatus.NotOverYet;
 		setEmpty();
 		layMines (10);
+	}
+
+	/******************************************************************
+	 * Helper method to check if a tile is in bounds
+	 * @param row the row value of the tile being checked
+	 * @param col the column value of the tile being checked
+	 * @return true if the tile is in the array, false if it is not
+	 *****************************************************************/
+	private boolean tileIsInbounds(int row, int col){
+		return row >= 0 && col >= 0
+				&& row < board.length && col < board[0].length;
 	}
 
 	private void layMines(int mineCount) {
