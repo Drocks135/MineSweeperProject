@@ -3,9 +3,6 @@
   <component name="ChangeListManager">
     <list default="true" id="a0e098d4-f7a7-4334-a365-98af65bfd971" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MinesweeperProject/Project2/MineSweeper/MineSweeperPanel$ButtonListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MinesweeperProject/Project2/MineSweeper/MineSweeperPanel$ButtonListener.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/MinesweeperProject/Project2/MineSweeper/MineSweeperPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MinesweeperProject/Project2/MineSweeper/MineSweeperPanel.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperPanel.java" afterDir="false" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -42,8 +39,8 @@
       <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="616">
-              <caret line="76" column="53" lean-forward="true" selection-start-line="76" selection-start-column="53" selection-end-line="76" selection-end-column="53" />
+            <state>
+              <caret column="29" lean-forward="true" selection-start-column="29" selection-end-column="29" />
               <folding>
                 <element signature="e#492#493#0" expanded="true" />
                 <element signature="e#521#522#0" expanded="true" />
@@ -157,7 +154,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550110139040" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550110567621" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -259,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1550095589322</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="02/13/2019">
+      <created>1550110194358</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1550110194358</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -411,8 +415,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperGame.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="616">
-          <caret line="76" column="53" lean-forward="true" selection-start-line="76" selection-start-column="53" selection-end-line="76" selection-end-column="53" />
+        <state>
+          <caret column="29" lean-forward="true" selection-start-column="29" selection-end-column="29" />
           <folding>
             <element signature="e#492#493#0" expanded="true" />
             <element signature="e#521#522#0" expanded="true" />
