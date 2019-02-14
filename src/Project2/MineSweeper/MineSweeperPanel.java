@@ -25,8 +25,9 @@ public class MineSweeperPanel extends JPanel {
 		game = new MineSweeperGame();
 
 		// create the board
-		center.setLayout(new GridLayout(5, 5));
 		board = new JButton[10][5];
+		center.setLayout(new GridLayout(board.length, board[0].length));
+
 
 		for (int row = 0; row < board.length; row++)
 			for (int col = 0; col < board[row].length; col++) {
@@ -68,16 +69,16 @@ public class MineSweeperPanel extends JPanel {
 				int neighborCount = 0;
 				if(!iCell.isMine()) {
 					neighborCount = game.neighboringMines(r, c);
-					if (neighborCount > 0)
+					if (neighborCount > 0) {
 						iCell.setIsNeigboringMine(true);
 						board[r][c].setText(Integer.toString(neighborCount));
+					}
 				}
 
 
 
 			}
 	}
-
 
 	private class ButtonListener implements ActionListener {
 
@@ -89,6 +90,8 @@ public class MineSweeperPanel extends JPanel {
 						game.select(r, c);
 
 			displayBoard();
+
+
 								
 			if (game.getGameStatus() == GameStatus.Lost) {
 				displayBoard();
