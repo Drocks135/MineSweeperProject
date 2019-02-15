@@ -3,8 +3,7 @@ package Project2.MineSweeper;
 
 import javax.swing.*;
 import java.awt.*;
-import java.awt.event.ActionEvent;
-import java.awt.event.ActionListener;
+import java.awt.event.*;
 
 public class MineSweeperPanel extends JPanel {
 
@@ -21,6 +20,8 @@ public class MineSweeperPanel extends JPanel {
 
 		// create game, listeners
 		ButtonListener listener = new ButtonListener();
+		MouseListener mouseListener = new MouseListener();
+
 
 		game = new MineSweeperGame();
 
@@ -33,6 +34,7 @@ public class MineSweeperPanel extends JPanel {
 			for (int col = 0; col < board[row].length; col++) {
 				board[row][col] = new JButton("");
 				board[row][col].addActionListener(listener);
+				board[row][col].addMouseListener(mouseListener);
 				center.add(board[row][col]);
 			}
 
@@ -70,7 +72,7 @@ public class MineSweeperPanel extends JPanel {
 				if(!iCell.isMine()) {
 					neighborCount = game.neighboringMines(r, c);
 					if (neighborCount > 0) {
-						iCell.setIsNeigboringMine(true);
+						iCell.setIsNeighboringMine(true);
 						board[r][c].setText(Integer.toString(neighborCount));
 					}
 				}
@@ -86,8 +88,9 @@ public class MineSweeperPanel extends JPanel {
 
 			for (int r = 0; r < board.length; r++)
 				for (int c = 0; c < board[r].length; c++)
-					if (board[r][c] == e.getSource())
+					if (board[r][c] == e.getSource()) {
 						game.select(r, c);
+					}
 
 			displayBoard();
 
@@ -95,7 +98,8 @@ public class MineSweeperPanel extends JPanel {
 								
 			if (game.getGameStatus() == GameStatus.Lost) {
 				displayBoard();
-				JOptionPane.showMessageDialog(null, "You Lose \n The game will reset");
+				JOptionPane.showMessageDialog(null, "You Lose " +
+						"\n The game will reset");
 				//exposeMines = false;
 				game.reset();
 				displayBoard();
@@ -103,7 +107,9 @@ public class MineSweeperPanel extends JPanel {
 			}
 
 			if (game.getGameStatus() == GameStatus.WON) {
-				JOptionPane.showMessageDialog(null, "You Win: all mines have been found!\n The game will reset");
+				JOptionPane.showMessageDialog(null,
+						"You Win: all mines have been found!" +
+								"\n The game will reset");
 				game.reset();
 				displayBoard();
 			}
@@ -112,7 +118,44 @@ public class MineSweeperPanel extends JPanel {
 
 	}
 
-}
+	//Can flag and reactivate an already clicked mine, fix later
+	private class MouseListener implements java.awt.event.MouseListener {
+
+		@Override
+		public void mouseClicked(MouseEvent e) {
+			if(SwingUtilities.isRightMouseButton(e))
+				for (int r = 0; r < board.length; r++)
+					for (int c = 0; c < board[r].length; c++)
+						if (board[r][c] == e.getSource()) {
+							iCell = game.getCell(r, c);
+							if(iCell.isFlagged()) {
+								game.flag(r, c);
+								board[r][c].setText("");
+								board[r][c].setEnabled(true);
+							} else {
+								game.flag(r, c);
+								board[r][c].setText("F");
+								board[r][c].setEnabled(false);
+							}
+						}
+
+		}
+
+		@Override
+		public void mousePressed(MouseEvent e) { }
+
+		@Override
+		public void mouseReleased(MouseEvent e) { }
+
+		@Override
+		public void mouseEntered(MouseEvent e) { }
+
+		@Override
+		public void mouseExited(MouseEvent e) { }
+		}
+
+	}
+
 
 
 
