@@ -30,11 +30,13 @@ public class MineSweeperGame {
 
 		if (board[row][col].isMine())   // did I lose
 			status = GameStatus.Lost;
+		else if (!board[row][col].IsNeighboringMine())
+			recursiveFill(row, col);
 		else {
 			for (int r = 0; r < board.length; r++)     // are only mines left
 			    for (int c = 0; c < board[0].length; c++) {
 					if (!board[r][c].isExposed()) {
-						if(!board[r][c].isMine()) {
+						if(!board[r][c].isMine() && !board[r][c].isFlagged()) {
 							status = GameStatus.NotOverYet;
 							c = board[r].length;
 							r = board.length + 1;
@@ -45,6 +47,34 @@ public class MineSweeperGame {
 				}
 
 		}
+	}
+
+	public void recursiveFill(int r, int c) {
+		if (tileIsInbounds(r, c))
+			board[r][c].setExposed(true);
+
+		//Check left
+		if (tileIsInbounds(r, c - 1))
+				if (isWhiteSpace(r, c -1)) {
+					recursiveFill(r, c - 1);
+				} else if (board[r][c - 1].IsNeighboringMine())
+					board[r][c - 1].setExposed(true);
+
+		//Check right
+		if (tileIsInbounds(r, c + 1))
+			if (isWhiteSpace(r, c + 1)) {
+				recursiveFill(r, c + 1);
+			}
+
+		//Check down
+		if (tileIsInbounds(r - 1, c))
+			if (isWhiteSpace(r - 1, c))
+				recursiveFill(r - 1, c);
+
+		//Check up
+		if (tileIsInbounds(r + 1, c))
+			if (isWhiteSpace(r + 1, c))
+				recursiveFill(r + 1, c);
 	}
 
 	public void flag(int row, int col) {
@@ -85,6 +115,13 @@ public class MineSweeperGame {
 	private boolean tileIsInbounds(int row, int col){
 		return row >= 0 && col >= 0
 				&& row < board.length && col < board[0].length;
+	}
+
+	private boolean isWhiteSpace(int r, int c){
+		return !board[c][r].isMine()
+				&& !board[r][c].isFlagged()
+				&& !board[r][c].IsNeighboringMine()
+				&& !board[r][c].isExposed();
 	}
 
 	private void layMines(int mineCount) {

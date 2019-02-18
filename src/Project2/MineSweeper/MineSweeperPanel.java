@@ -128,14 +128,15 @@ public class MineSweeperPanel extends JPanel {
 					for (int c = 0; c < board[r].length; c++)
 						if (board[r][c] == e.getSource()) {
 							iCell = game.getCell(r, c);
-							if(iCell.isFlagged()) {
-								game.flag(r, c);
-								board[r][c].setText("");
-								board[r][c].setEnabled(true);
-							} else {
-								game.flag(r, c);
-								board[r][c].setText("F");
-								board[r][c].setEnabled(false);
+							if (!iCell.isExposed())
+								if(iCell.isFlagged()) {
+									game.flag(r, c);
+									board[r][c].setText("");
+									board[r][c].setEnabled(true);
+								} else {
+									game.flag(r, c);
+									board[r][c].setText("F");
+									board[r][c].setEnabled(false);
 							}
 						}
 

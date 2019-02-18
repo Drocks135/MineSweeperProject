@@ -3,7 +3,10 @@
   <component name="ChangeListManager">
     <list default="true" id="a0e098d4-f7a7-4334-a365-98af65bfd971" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/Project2/MineSweeper/Cell.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Project2/MineSweeper/Cell.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MinesweeperProject/Project2/MineSweeper/Cell.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MinesweeperProject/Project2/MineSweeper/Cell.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MinesweeperProject/Project2/MineSweeper/MineSweeperGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MinesweeperProject/Project2/MineSweeper/MineSweeperGame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MinesweeperProject/Project2/MineSweeper/MineSweeperPanel$ButtonListener.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MinesweeperProject/Project2/MineSweeper/MineSweeperPanel$ButtonListener.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MinesweeperProject/Project2/MineSweeper/MineSweeperPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MinesweeperProject/Project2/MineSweeper/MineSweeperPanel.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperPanel.java" afterDir="false" />
     </list>
@@ -19,19 +22,18 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Project2/MineSweeper/Cell.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="486">
-              <caret line="54" column="28" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
+            <state relative-caret-position="194">
+              <caret line="23" selection-start-line="23" selection-end-line="23" />
               <folding>
-                <element signature="e#863#864#0" expanded="true" />
-                <element signature="e#914#915#0" expanded="true" />
-                <element signature="e#956#957#0" expanded="true" />
-                <element signature="e#998#999#0" expanded="true" />
-                <element signature="e#1064#1065#0" expanded="true" />
-                <element signature="e#1126#1127#0" expanded="true" />
-                <element signature="e#1164#1165#0" expanded="true" />
-                <element signature="e#1189#1190#0" expanded="true" />
-                <element signature="e#1246#1247#0" expanded="true" />
-                <element signature="e#1280#1281#0" expanded="true" />
+                <element signature="e#474#475#0" expanded="true" />
+                <element signature="e#506#507#0" expanded="true" />
+                <element signature="e#553#554#0" expanded="true" />
+                <element signature="e#619#620#0" expanded="true" />
+                <element signature="e#648#649#0" expanded="true" />
+                <element signature="e#759#760#0" expanded="true" />
+                <element signature="e#799#800#0" expanded="true" />
+                <element signature="e#1160#1161#0" expanded="true" />
+                <element signature="e#1192#1193#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -55,25 +57,23 @@
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="false">
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperGame.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="204">
-              <caret line="54" column="9" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
+            <state relative-caret-position="1299">
+              <caret line="120" selection-start-line="120" selection-end-line="120" />
               <folding>
-                <element signature="e#492#493#0" expanded="true" />
-                <element signature="e#521#522#0" expanded="true" />
-                <element signature="e#1544#1545#0" expanded="true" />
+                <element signature="e#2289#2290#0" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
-      <file pinned="false" current-in-tab="true">
+      <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="459">
-              <caret line="135" column="29" lean-forward="true" selection-start-line="135" selection-start-column="29" selection-end-line="135" selection-end-column="29" />
+            <state relative-caret-position="466">
+              <caret line="142" selection-start-line="142" selection-end-line="142" />
             </state>
           </provider>
         </entry>
@@ -104,8 +104,8 @@
         <option value="$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperGUI.java" />
         <option value="$PROJECT_DIR$/src/Project2/MineSweeper/GameStatus.java" />
         <option value="$PROJECT_DIR$/src/Project2/MineSweeper/Cell.java" />
-        <option value="$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperGame.java" />
         <option value="$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperPanel.java" />
+        <option value="$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperGame.java" />
       </list>
     </option>
   </component>
@@ -156,7 +156,7 @@
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="aspect.path.notification.shown" value="true" />
-    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550256552808" />
+    <property name="com.android.tools.idea.instantapp.provision.ProvisionBeforeRunTaskProvider.myTimeStamp" value="1550256652353" />
     <property name="last_opened_file_path" value="$PROJECT_DIR$" />
     <property name="project.structure.last.edited" value="Project" />
     <property name="project.structure.proportion" value="0.0" />
@@ -265,7 +265,14 @@
       <option name="project" value="LOCAL" />
       <updated>1550110194358</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="02/13/2019">
+      <created>1550256659732</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1550256659732</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -281,11 +288,11 @@
       <window_info id="Capture Tool" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.11140725" />
+      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.11353944" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3281412" />
-      <window_info anchor="bottom" id="Debug" order="3" weight="0.39875388" />
+      <window_info anchor="bottom" id="Run" order="2" weight="0.3281412" />
+      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39875388" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -345,6 +352,16 @@
     <option name="LAST_COMMIT_MESSAGE" value="02/13/2019" />
   </component>
   <component name="XDebuggerManager">
+    <breakpoint-manager>
+      <breakpoints>
+        <line-breakpoint enabled="true" type="java-line">
+          <url>file://$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperGame.java</url>
+          <line>52</line>
+          <properties />
+          <option name="timeStamp" value="5" />
+        </line-breakpoint>
+      </breakpoints>
+    </breakpoint-manager>
     <watches-manager>
       <configuration name="Application">
         <watch expression="((javax.swing.JButton[][])((MineSweeperPanel)this).board)[1][1]" custom="javax.swing.JButton[][],Project2.MineSweeper.MineSweeperPanel" />
@@ -380,22 +397,17 @@
     <entry file="file://$PROJECT_DIR$/02_13_2019.patch">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
+    <entry file="file://D:/MinesweeperProject/src/Project2/MineSweeper/Cell.java" />
     <entry file="file://$PROJECT_DIR$/../../Fall 2018 - GVSU/CIS/Projects/Project 4/Farkle/Farkle.class">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/../../Fall 2018 - GVSU/CIS/Projects/Project 4/Farkle/FarkleGUI.class">
       <provider selected="true" editor-type-id="text-editor" />
     </entry>
-    <entry file="file://D:/MinesweeperProject/src/Project2/MineSweeper/Cell.java">
+    <entry file="file://$PROJECT_DIR$/src/Project2/MineSweeper/GameStatus.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret selection-end-line="48" selection-end-column="1" />
-          <folding>
-            <element signature="e#956#957#0" expanded="true" />
-            <element signature="e#998#999#0" expanded="true" />
-            <element signature="e#1064#1065#0" expanded="true" />
-            <element signature="e#1126#1127#0" expanded="true" />
-          </folding>
+        <state relative-caret-position="102">
+          <caret line="6" selection-start-line="6" selection-end-line="6" />
         </state>
       </provider>
     </entry>
@@ -406,48 +418,38 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/Project2/MineSweeper/GameStatus.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="102">
-          <caret line="6" selection-start-line="6" selection-end-line="6" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/Project2/MineSweeper/Cell.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="486">
-          <caret line="54" column="28" selection-start-line="54" selection-start-column="28" selection-end-line="54" selection-end-column="28" />
+        <state relative-caret-position="194">
+          <caret line="23" selection-start-line="23" selection-end-line="23" />
           <folding>
-            <element signature="e#863#864#0" expanded="true" />
-            <element signature="e#914#915#0" expanded="true" />
-            <element signature="e#956#957#0" expanded="true" />
-            <element signature="e#998#999#0" expanded="true" />
-            <element signature="e#1064#1065#0" expanded="true" />
-            <element signature="e#1126#1127#0" expanded="true" />
-            <element signature="e#1164#1165#0" expanded="true" />
-            <element signature="e#1189#1190#0" expanded="true" />
-            <element signature="e#1246#1247#0" expanded="true" />
-            <element signature="e#1280#1281#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="204">
-          <caret line="54" column="9" selection-start-line="54" selection-start-column="9" selection-end-line="54" selection-end-column="9" />
-          <folding>
-            <element signature="e#492#493#0" expanded="true" />
-            <element signature="e#521#522#0" expanded="true" />
-            <element signature="e#1544#1545#0" expanded="true" />
+            <element signature="e#474#475#0" expanded="true" />
+            <element signature="e#506#507#0" expanded="true" />
+            <element signature="e#553#554#0" expanded="true" />
+            <element signature="e#619#620#0" expanded="true" />
+            <element signature="e#648#649#0" expanded="true" />
+            <element signature="e#759#760#0" expanded="true" />
+            <element signature="e#799#800#0" expanded="true" />
+            <element signature="e#1160#1161#0" expanded="true" />
+            <element signature="e#1192#1193#0" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="459">
-          <caret line="135" column="29" lean-forward="true" selection-start-line="135" selection-start-column="29" selection-end-line="135" selection-end-column="29" />
+        <state relative-caret-position="466">
+          <caret line="142" selection-start-line="142" selection-end-line="142" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1299">
+          <caret line="120" selection-start-line="120" selection-end-line="120" />
+          <folding>
+            <element signature="e#2289#2290#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
