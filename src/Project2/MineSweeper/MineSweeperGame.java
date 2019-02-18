@@ -55,26 +55,31 @@ public class MineSweeperGame {
 
 		//Check left
 		if (tileIsInbounds(r, c - 1))
-				if (isWhiteSpace(r, c -1)) {
+				if (isWhiteSpace(r, c -1))
 					recursiveFill(r, c - 1);
-				} else if (board[r][c - 1].IsNeighboringMine())
+				 else if (board[r][c - 1].IsNeighboringMine())
 					board[r][c - 1].setExposed(true);
 
 		//Check right
 		if (tileIsInbounds(r, c + 1))
-			if (isWhiteSpace(r, c + 1)) {
+			if (isWhiteSpace(r, c + 1))
 				recursiveFill(r, c + 1);
-			}
+			else if (board[r][c + 1].IsNeighboringMine())
+				board[r][c + 1].setExposed(true);
 
-		//Check down
+		//Check up
 		if (tileIsInbounds(r - 1, c))
 			if (isWhiteSpace(r - 1, c))
 				recursiveFill(r - 1, c);
+			else if (board[r - 1][c].IsNeighboringMine())
+				board [r - 1][c].setExposed(true);
 
-		//Check up
+		//Check down
 		if (tileIsInbounds(r + 1, c))
 			if (isWhiteSpace(r + 1, c))
 				recursiveFill(r + 1, c);
+			else if (board[r + 1][c].IsNeighboringMine())
+				board[r + 1][c].setExposed(true);
 	}
 
 	public void flag(int row, int col) {
@@ -118,7 +123,7 @@ public class MineSweeperGame {
 	}
 
 	private boolean isWhiteSpace(int r, int c){
-		return !board[c][r].isMine()
+		return !board[r][c].isMine()
 				&& !board[r][c].isFlagged()
 				&& !board[r][c].IsNeighboringMine()
 				&& !board[r][c].isExposed();
