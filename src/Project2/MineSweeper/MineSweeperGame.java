@@ -11,7 +11,7 @@ public class MineSweeperGame {
 		board = new Cell[10][5];
 		setEmpty();
 		layMines (7);
-		
+		setNeighboringMines();
 	}
 
 	private void setEmpty() {
@@ -57,7 +57,8 @@ public class MineSweeperGame {
 		if (tileIsInbounds(r, c - 1))
 				if (isWhiteSpace(r, c -1))
 					recursiveFill(r, c - 1);
-				 else if (board[r][c - 1].IsNeighboringMine())
+				 else if (board[r][c - 1].IsNeighboringMine()
+						&& !board[r][c - 1].isFlagged())
 					board[r][c - 1].setExposed(true);
 
 		//Check right
@@ -89,18 +90,6 @@ public class MineSweeperGame {
 		 	board[row][col].setFlagged(true);
 		}
 
-	public int neighboringMines(int row, int col){
-		int neighborCount = 0;
-
-		for(int i = row - 1; i <= row + 1; i++)
-			for(int j = col - 1; j <= col + 1; j++)
-				if(tileIsInbounds(i, j))
-					if(board[i][j].isMine())
-						neighborCount++;
-
-		return neighborCount;
-	}
-
 	public GameStatus getGameStatus() {
 		return status;
 	}
@@ -109,6 +98,7 @@ public class MineSweeperGame {
 		status = GameStatus.NotOverYet;
 		setEmpty();
 		layMines (10);
+		setNeighboringMines();
 	}
 
 	/******************************************************************
@@ -140,6 +130,32 @@ public class MineSweeperGame {
 			if (!board[r][c].isMine()) {
 				board[r][c].setMine(true);
 				i++;
+			}
+		}
+	}
+
+	private int neighboringMines(int row, int col){
+		int neighborCount = 0;
+
+		for(int i = row - 1; i <= row + 1; i++)
+			for(int j = col - 1; j <= col + 1; j++)
+				if(tileIsInbounds(i, j))
+					if(board[i][j].isMine())
+						neighborCount++;
+
+		return neighborCount;
+	}
+
+	private void setNeighboringMines(){
+		for (int r = 0; r < board.length; r++)
+			for (int c = 0; c < board[r].length; c++){
+				int neighborCount = 0;
+				if(!board[r][c].isMine()) {
+					neighborCount = neighboringMines(r, c);
+					if (neighborCount > 0) {
+						board[r][c].setIsNeighboringMine(true);
+						board[r][c].setNumNeighboringMines(neighborCount);
+				}
 			}
 		}
 	}

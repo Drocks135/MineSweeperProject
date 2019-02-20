@@ -19,7 +19,7 @@ public class MineSweeperPanel extends JPanel {
 		JPanel center = new JPanel();
 
 		// create game, listeners
-		ButtonListener listener = new ButtonListener();
+		//ButtonListener listener = new ButtonListener();
 		MouseListener mouseListener = new MouseListener();
 
 
@@ -33,7 +33,6 @@ public class MineSweeperPanel extends JPanel {
 		for (int row = 0; row < board.length; row++)
 			for (int col = 0; col < board[row].length; col++) {
 				board[row][col] = new JButton("");
-				board[row][col].addActionListener(listener);
 				board[row][col].addMouseListener(mouseListener);
 				center.add(board[row][col]);
 			}
@@ -59,63 +58,27 @@ public class MineSweeperPanel extends JPanel {
 				board[r][c].setText("");
 
 				// readable, ifs are verbose
-					
-				if (iCell.isMine())
-					board[r][c].setText("!");
-
 				if (iCell.isExposed())
 					board[r][c].setEnabled(false);
 				else
 					board[r][c].setEnabled(true);
 
-				int neighborCount = 0;
-				if(!iCell.isMine()) {
-					neighborCount = game.neighboringMines(r, c);
-					if (neighborCount > 0) {
-						iCell.setIsNeighboringMine(true);
-						board[r][c].setText(Integer.toString(neighborCount));
+				if(iCell.isFlagged())
+					board[r][c].setText("F");
+				else {
+					if (iCell.isMine())
+						board[r][c].setText("!");
+
+					int neighborCount = 0;
+					if (!iCell.isMine()) {
+						if (iCell.getNumNeighboringMines() > 0) {
+							board[r][c].setText(Integer.toString(iCell.getNumNeighboringMines()));
+						}
 					}
 				}
 
 
-
 			}
-	}
-
-	private class ButtonListener implements ActionListener {
-
-		public void actionPerformed(ActionEvent e) {
-
-			for (int r = 0; r < board.length; r++)
-				for (int c = 0; c < board[r].length; c++)
-					if (board[r][c] == e.getSource()) {
-						game.select(r, c);
-					}
-
-			displayBoard();
-
-
-								
-			if (game.getGameStatus() == GameStatus.Lost) {
-				displayBoard();
-				JOptionPane.showMessageDialog(null, "You Lose " +
-						"\n The game will reset");
-				//exposeMines = false;
-				game.reset();
-				displayBoard();
-
-			}
-
-			if (game.getGameStatus() == GameStatus.WON) {
-				JOptionPane.showMessageDialog(null,
-						"You Win: all mines have been found!" +
-								"\n The game will reset");
-				game.reset();
-				displayBoard();
-			}
-
-		}
-
 	}
 
 	//Can flag and reactivate an already clicked mine, fix later
@@ -132,13 +95,45 @@ public class MineSweeperPanel extends JPanel {
 								if(iCell.isFlagged()) {
 									game.flag(r, c);
 									board[r][c].setText("");
-									board[r][c].setEnabled(true);
 								} else {
 									game.flag(r, c);
 									board[r][c].setText("F");
-									board[r][c].setEnabled(false);
 							}
 						}
+
+			if(SwingUtilities.isLeftMouseButton(e)){
+				for (int r = 0; r < board.length; r++)
+					for (int c = 0; c < board[r].length; c++)
+						if (board[r][c] == e.getSource()) {
+							iCell = game.getCell(r, c);
+							if(!iCell.isFlagged())
+								game.select(r, c);
+						}
+
+				displayBoard();
+
+
+
+				if (game.getGameStatus() == GameStatus.Lost) {
+					displayBoard();
+					JOptionPane.showMessageDialog(null, "You Lose " +
+							"\n The game will reset");
+					//exposeMines = false;
+					game.reset();
+					displayBoard();
+
+				}
+
+				if (game.getGameStatus() == GameStatus.WON) {
+					JOptionPane.showMessageDialog(null,
+							"You Win: all mines have been found!" +
+									"\n The game will reset");
+					game.reset();
+					displayBoard();
+				}
+
+			}
+
 
 		}
 
