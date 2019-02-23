@@ -10,31 +10,32 @@ public class MineSweeperPanel extends JPanel {
 	private JButton[][] board;
 	private JButton butQuit;
 	private Cell iCell;
+	private int row = 10;
+	private int col = 10;
+	private int numMines = 7;
 
 	private MineSweeperGame game;  // model
 
-	public MineSweeperPanel() {
-
+	public MineSweeperPanel (){
 		JPanel bottom = new JPanel();
 		JPanel center = new JPanel();
+        setLayout(new BorderLayout());
 
-		// create game, listeners
-		//ButtonListener listener = new ButtonListener();
+        // create game, listeners
 		MouseListener mouseListener = new MouseListener();
 
-
-		game = new MineSweeperGame();
+		game = new MineSweeperGame(row, col, numMines);
 
 		// create the board
-		board = new JButton[10][5];
+		board = new JButton[row][col];
 		center.setLayout(new GridLayout(board.length, board[0].length));
 
 
-		for (int row = 0; row < board.length; row++)
-			for (int col = 0; col < board[row].length; col++) {
-				board[row][col] = new JButton("");
-				board[row][col].addMouseListener(mouseListener);
-				center.add(board[row][col]);
+		for (int r = 0; r < board.length; r++)
+			for (int c = 0; c < board[r].length; c++) {
+				board[r][c] = new JButton("");
+				board[r][c].addMouseListener(mouseListener);
+				center.add(board[r][c]);
 			}
 
 		displayBoard();
@@ -42,11 +43,11 @@ public class MineSweeperPanel extends JPanel {
 		bottom.setLayout(new GridLayout(3, 2));
 
 		// add all to contentPane
-		add(new JLabel("!!!!!!  Mine Sweeper  !!!!"), BorderLayout.NORTH);
+		add(new JLabel("!!!!! MineSweeper !!!!!"), BorderLayout.NORTH);
 		add(center, BorderLayout.CENTER);
-		add(bottom, BorderLayout.SOUTH);
 
 	}
+
 
 
 	private void displayBoard() {
@@ -69,7 +70,6 @@ public class MineSweeperPanel extends JPanel {
 					if (iCell.isMine())
 						board[r][c].setText("!");
 
-					int neighborCount = 0;
 					if (!iCell.isMine()) {
 						if (iCell.getNumNeighboringMines() > 0) {
 							board[r][c].setText(Integer.toString(iCell.getNumNeighboringMines()));
@@ -80,6 +80,12 @@ public class MineSweeperPanel extends JPanel {
 
 			}
 	}
+
+	public void setRowColMine(int row, int col, int mines){
+	    this.row = row;
+	    this.col = col;
+	    numMines = mines;
+    }
 
 	//Can flag and reactivate an already clicked mine, fix later
 	private class MouseListener implements java.awt.event.MouseListener {

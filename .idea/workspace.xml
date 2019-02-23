@@ -3,7 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="a0e098d4-f7a7-4334-a365-98af65bfd971" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MinesweeperProject/Project2/MineSweeper/MineSweeperGUI.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MinesweeperProject/Project2/MineSweeper/MineSweeperGUI.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/MinesweeperProject/Project2/MineSweeper/MineSweeperGame.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MinesweeperProject/Project2/MineSweeper/MineSweeperGame.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MinesweeperProject/Project2/MineSweeper/MineSweeperPanel$ButtonListener.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/MinesweeperProject/Project2/MineSweeper/MineSweeperPanel.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/MinesweeperProject/Project2/MineSweeper/MineSweeperPanel.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperGUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperGUI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperGame.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperPanel.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperPanel.java" afterDir="false" />
     </list>
@@ -19,7 +23,7 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Project2/MineSweeper/Cell.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="89">
+            <state relative-caret-position="357">
               <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
               <folding>
                 <element signature="e#474#475#0" expanded="true" />
@@ -50,29 +54,36 @@
       <file pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperGUI.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="289">
-              <caret line="17" selection-start-line="17" selection-end-line="17" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperGame.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="255">
-              <caret line="86" column="39" selection-start-line="86" selection-start-column="39" selection-end-line="86" selection-end-column="39" />
+            <state relative-caret-position="187">
+              <caret line="11" column="56" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
               <folding>
-                <element signature="e#2331#2332#0" expanded="true" />
+                <element signature="imports" expanded="true" />
               </folding>
             </state>
           </provider>
         </entry>
       </file>
       <file pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperGame.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="221">
+              <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+              <folding>
+                <element signature="e#2351#2352#0" expanded="true" />
+                <element signature="e#2371#2372#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1309">
-              <caret line="112" column="25" lean-forward="true" selection-start-line="112" selection-start-column="25" selection-end-line="112" selection-end-column="25" />
+            <state relative-caret-position="238">
+              <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
+              <folding>
+                <element signature="imports" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -82,6 +93,7 @@
   <component name="FindInProjectRecents">
     <findStrings>
       <find>select</find>
+      <find>MineSweeperPanel</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -90,10 +102,10 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperGUI.java" />
         <option value="$PROJECT_DIR$/src/Project2/MineSweeper/GameStatus.java" />
         <option value="$PROJECT_DIR$/src/Project2/MineSweeper/Cell.java" />
         <option value="$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperGame.java" />
+        <option value="$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperGUI.java" />
         <option value="$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperPanel.java" />
       </list>
     </option>
@@ -109,38 +121,7 @@
     <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
-    <panes>
-      <pane id="Scope" />
-      <pane id="PackagesPane" />
-      <pane id="ProjectPane">
-        <subPane>
-          <expand>
-            <path>
-              <item name="MinesweeperProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MinesweeperProject" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MinesweeperProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MinesweeperProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MinesweeperProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MinesweeperProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="company" type="462c0819:PsiDirectoryNode" />
-            </path>
-            <path>
-              <item name="MinesweeperProject" type="b2602c69:ProjectViewProjectNode" />
-              <item name="MinesweeperProject" type="462c0819:PsiDirectoryNode" />
-              <item name="src" type="462c0819:PsiDirectoryNode" />
-              <item name="MineSweeper" type="462c0819:PsiDirectoryNode" />
-            </path>
-          </expand>
-          <select />
-        </subPane>
-      </pane>
-    </panes>
+    <panes />
   </component>
   <component name="PropertiesComponent">
     <property name="WebServerToolWindowFactoryState" value="false" />
@@ -275,7 +256,14 @@
       <option name="project" value="LOCAL" />
       <updated>1550454737605</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="02/13/2019">
+      <created>1550694361450</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1550694361450</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TimeTrackingManager">
@@ -322,11 +310,11 @@
       <window_info id="Capture Tool" order="3" />
       <window_info id="Favorites" order="4" side_tool="true" />
       <window_info id="Structure" order="5" side_tool="true" weight="0.25" />
-      <window_info content_ui="combo" id="Project" order="6" visible="true" weight="0.11353944" />
+      <window_info content_ui="combo" id="Project" order="6" weight="0.11353944" />
       <window_info anchor="bottom" id="Message" order="0" />
       <window_info anchor="bottom" id="Find" order="1" />
-      <window_info anchor="bottom" id="Run" order="2" weight="0.3281412" />
-      <window_info active="true" anchor="bottom" id="Debug" order="3" visible="true" weight="0.39875388" />
+      <window_info active="true" anchor="bottom" id="Run" order="2" visible="true" weight="0.3281412" />
+      <window_info anchor="bottom" id="Debug" order="3" weight="0.39875388" />
       <window_info anchor="bottom" id="Cvs" order="4" weight="0.25" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
       <window_info anchor="bottom" id="TODO" order="6" />
@@ -399,7 +387,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Project2/MineSweeper/Cell.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="89">
+        <state relative-caret-position="357">
           <caret line="25" column="29" selection-start-line="25" selection-start-column="29" selection-end-line="25" selection-end-column="29" />
           <folding>
             <element signature="e#474#475#0" expanded="true" />
@@ -424,26 +412,33 @@
         </state>
       </provider>
     </entry>
+    <entry file="file://$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperGame.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="221">
+          <caret line="13" column="30" selection-start-line="13" selection-start-column="30" selection-end-line="13" selection-end-column="30" />
+          <folding>
+            <element signature="e#2351#2352#0" expanded="true" />
+            <element signature="e#2371#2372#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperGUI.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="289">
-          <caret line="17" selection-start-line="17" selection-end-line="17" />
+        <state relative-caret-position="187">
+          <caret line="11" column="56" selection-start-line="11" selection-start-column="56" selection-end-line="11" selection-end-column="56" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperPanel.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1309">
-          <caret line="112" column="25" lean-forward="true" selection-start-line="112" selection-start-column="25" selection-end-line="112" selection-end-column="25" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Project2/MineSweeper/MineSweeperGame.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="86" column="39" selection-start-line="86" selection-start-column="39" selection-end-line="86" selection-end-column="39" />
+        <state relative-caret-position="238">
+          <caret line="14" column="29" lean-forward="true" selection-start-line="14" selection-start-column="29" selection-end-line="14" selection-end-column="29" />
           <folding>
-            <element signature="e#2331#2332#0" expanded="true" />
+            <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>

@@ -6,11 +6,11 @@ public class MineSweeperGame {
 	private Cell[][] board;
 	private GameStatus status;
 
-	public MineSweeperGame() {
+	public MineSweeperGame(int row, int col, int numMines) {
 		status = GameStatus.NotOverYet;
-		board = new Cell[10][5];
+		board = new Cell[row][col];
 		setEmpty();
-		layMines (7);
+		layMines (numMines);
 		setNeighboringMines();
 	}
 
