@@ -6,6 +6,13 @@ public class MineSweeperGame {
 	private Cell[][] board;
 	private GameStatus status;
 
+	/******************************************************************
+	 * @param row integer to set the amount of rows for the board
+	 * @param col integer to set the number of columns for the board
+	 * @param numMines integer to set how many mines are placed
+	 * Default constructor to create an array of cells, set mines in
+	 * the game and calculate how many mines are around each cell
+	 *****************************************************************/
 	public MineSweeperGame(int row, int col, int numMines) {
 		status = GameStatus.NotOverYet;
 		board = new Cell[row][col];
@@ -14,6 +21,9 @@ public class MineSweeperGame {
 		setNeighboringMines();
 	}
 
+	/******************************************************************
+	 * Sets the entire board to empty cells
+	 *****************************************************************/
 	private void setEmpty() {
 		for (int r = 0; r < board.length; r++)
 			for (int c = 0; c < board[r].length; c++)
@@ -21,22 +31,32 @@ public class MineSweeperGame {
 						false, false);  // totally clear.
 	}
 
+	/******************************************************************
+	 * returns the current cell
+	 *****************************************************************/
 	public Cell getCell(int row, int col) {
 		return board[row][col];
 	}
 
+	/******************************************************************
+	 * @param row integer corresponding to the row value of a cell
+	 * @param col integer corresponding to the column value of a cell
+	 * This class selects a cell, determines what the cell is and what
+	 * should be done based on minesweeper rules
+	 *****************************************************************/
 	public void select(int row, int col) {
 		board[row][col].setExposed(true);
 
-		if (board[row][col].isMine())   // did I lose
+		//Checks if the cell is a mine and lose the game if it is
+		if (board[row][col].isMine())
 			status = GameStatus.Lost;
-		else if (!board[row][col].IsNeighboringMine())
-			recursiveFill(row, col);
 		else {
+			if(!board[row][col].IsNeighboringMine())
+				zeroFill(row, col);
 			for (int r = 0; r < board.length; r++)     // are only mines left
 			    for (int c = 0; c < board[0].length; c++) {
 					if (!board[r][c].isExposed()) {
-						if(!board[r][c].isMine() && !board[r][c].isFlagged()) {
+						if(!board[r][c].isMine()) {
 							status = GameStatus.NotOverYet;
 							c = board[r].length;
 							r = board.length + 1;
@@ -83,6 +103,50 @@ public class MineSweeperGame {
 				board[r + 1][c].setExposed(true);
 	}
 
+	/******************************************************************
+	 * @param r integer representing the row value of the first tile
+	 * @param c integer representing the column value of the first tile
+	 * A non recursive zero fill, if using this method go to
+	 * isWhiteSpace and comment out the last line.
+	 ******************************************************************/
+	public void zeroFill(int r, int c){
+		boolean foundNew = true;
+		int countExpose = 0;
+
+		board[r][c].setExposed(true);
+
+		while (foundNew){
+			for (int row = 0; row < board.length; row++)     // are only mines left
+				for (int col = 0; col < board[0].length; col++){
+					if (tileIsInbounds(row, col - 1))
+						if (isWhiteSpace(row, col) && board[row][col].isExposed()) {
+							board[row][col - 1].setExposed(true);
+							countExpose++;
+						}
+
+					if (tileIsInbounds(row, col + 1))
+						if (isWhiteSpace(row, col) && board[row][col].isExposed()){
+							board[row][col + 1].setExposed(true);
+							countExpose++;
+						}
+
+					if (tileIsInbounds(row + 1, col))
+						if (isWhiteSpace(row, col) && board[row][col].isExposed()) {
+							board[row + 1][col].setExposed(true);
+							countExpose++;
+						}
+
+					if (tileIsInbounds(row - 1, col))
+						if (isWhiteSpace(row, col) && board[row][col].isExposed()) {
+							board[row - 1][col].setExposed(true);
+							countExpose++;
+						}
+				}
+			if (!(countExpose > 0))
+				foundNew = false;
+		}
+	}
+
 	public void flag(int row, int col) {
 		if(board[row][col].isFlagged())
 			board[row][col].setFlagged(false);
@@ -116,6 +180,7 @@ public class MineSweeperGame {
 		return !board[r][c].isMine()
 				&& !board[r][c].isFlagged()
 				&& !board[r][c].IsNeighboringMine()
+				//comment out this line if using the non recursive fill
 				&& !board[r][c].isExposed();
 	}
 

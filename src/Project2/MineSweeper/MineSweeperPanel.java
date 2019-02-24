@@ -11,7 +11,7 @@ public class MineSweeperPanel extends JPanel {
 	private JButton butQuit;
 	private Cell iCell;
 	private int row = 10;
-	private int col = 10;
+	private int col = 5;
 	private int numMines = 7;
 
 	private MineSweeperGame game;  // model
@@ -24,32 +24,42 @@ public class MineSweeperPanel extends JPanel {
         // create game, listeners
 		MouseListener mouseListener = new MouseListener();
 
+		//instaniate the game
 		game = new MineSweeperGame(row, col, numMines);
 
 		// create the board
 		board = new JButton[row][col];
 		center.setLayout(new GridLayout(board.length, board[0].length));
 
-
+		//instantiate buttons, add listeneres
+		// and add them to the center panel
 		for (int r = 0; r < board.length; r++)
 			for (int c = 0; c < board[r].length; c++) {
 				board[r][c] = new JButton("");
 				board[r][c].addMouseListener(mouseListener);
 				center.add(board[r][c]);
 			}
-
+		//Call a refresh of the board to add the text to buttons
 		displayBoard();
 
+		//Instantiate quit button, and make it exit on click
+		butQuit = new JButton("Quit");
+		butQuit.addActionListener(e -> System.exit(0));
+
 		bottom.setLayout(new GridLayout(3, 2));
+		bottom.add(butQuit);
 
 		// add all to contentPane
 		add(new JLabel("!!!!! MineSweeper !!!!!"), BorderLayout.NORTH);
 		add(center, BorderLayout.CENTER);
+		add(bottom, BorderLayout.SOUTH);
 
 	}
 
 
-
+	/******************************************************************
+	 * Refreshes the board and put's text onto corresponding mines
+	 *****************************************************************/
 	private void displayBoard() {
 
 		for (int r = 0; r < board.length; r++)
@@ -87,11 +97,14 @@ public class MineSweeperPanel extends JPanel {
 	    numMines = mines;
     }
 
-	//Can flag and reactivate an already clicked mine, fix later
+
 	private class MouseListener implements java.awt.event.MouseListener {
 
 		@Override
 		public void mouseClicked(MouseEvent e) {
+			//Handles the flagging mechanic, set's the text to F
+			//for flagged, or removes and F and changes the cells
+			//properties
 			if(SwingUtilities.isRightMouseButton(e))
 				for (int r = 0; r < board.length; r++)
 					for (int c = 0; c < board[r].length; c++)
@@ -107,6 +120,8 @@ public class MineSweeperPanel extends JPanel {
 							}
 						}
 
+			//Handles left clicks, calls the game to make necessary
+			//actions
 			if(SwingUtilities.isLeftMouseButton(e)){
 				for (int r = 0; r < board.length; r++)
 					for (int c = 0; c < board[r].length; c++)
