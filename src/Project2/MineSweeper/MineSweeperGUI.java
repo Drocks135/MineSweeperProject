@@ -14,7 +14,6 @@ public class MineSweeperGUI {
 		frame.setSize(400, 400);
 		frame.setVisible(true);
 
-
 		//Sets up the Menu Bar
 		JMenuBar menuBar;
 		JMenu menu;
@@ -34,20 +33,8 @@ public class MineSweeperGUI {
 		//Closes the application
 		quit.addActionListener(e -> System.exit(0));
 
-		//sets up the option menu
-		JPanel optionMenu = new JPanel();
-		JTextField mines, row, col;
-		JLabel labMines, labRow, labCol;
-		optionMenu.setLayout(new GridLayout(3, 3));
-
-		labMines = new JLabel("Enter Mines: " + "\n" + "Default: 7");
-		labRow = new JLabel("Enter rows: " + "\n" + "Default: 10");
-		labCol = new JLabel("Enter Columns: " + "\n" + "Default: 5");
-
-		mines = new JTextField("7");
-		row = new JTextField("10");
-
-
+		options.addActionListener(e -> panel.showOptionPanel());
 	}
+
 }
 

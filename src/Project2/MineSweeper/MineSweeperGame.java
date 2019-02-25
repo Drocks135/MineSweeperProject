@@ -5,6 +5,8 @@ import java.util.Random;
 public class MineSweeperGame {
 	private Cell[][] board;
 	private GameStatus status;
+	private boolean start;
+	private int numMines;
 
 	/******************************************************************
 	 * @param row integer to set the amount of rows for the board
@@ -17,8 +19,10 @@ public class MineSweeperGame {
 		status = GameStatus.NotOverYet;
 		board = new Cell[row][col];
 		setEmpty();
+		this.numMines = numMines;
 		layMines (numMines);
 		setNeighboringMines();
+		start = true;
 	}
 
 	/******************************************************************
@@ -47,12 +51,16 @@ public class MineSweeperGame {
 	public void select(int row, int col) {
 		board[row][col].setExposed(true);
 
-		//Checks if the cell is a mine and lose the game if it is
-		if (board[row][col].isMine())
+		//Checks if the cell is a mine and lose the game if it is\
+		if (board[row][col].isMine() && start) {
+			moveMine(row, col);
+			start = false;
+		}
+		else if (board[row][col].isMine())
 			status = GameStatus.Lost;
 		else {
 			if(!board[row][col].IsNeighboringMine())
-				zeroFill(row, col);
+				recursiveFill(row, col);
 			for (int r = 0; r < board.length; r++)     // are only mines left
 			    for (int c = 0; c < board[0].length; c++) {
 					if (!board[r][c].isExposed()) {
@@ -79,34 +87,14 @@ public class MineSweeperGame {
 		if (tileIsInbounds(r, c))
 			board[r][c].setExposed(true);
 
-		//Check left
-		if (tileIsInbounds(r, c - 1))
-				if (isWhiteSpace(r, c -1))
-					recursiveFill(r, c - 1);
-				 else if (board[r][c - 1].IsNeighboringMine()
-						&& !board[r][c - 1].isFlagged())
-					board[r][c - 1].setExposed(true);
-
-		//Check right
-		if (tileIsInbounds(r, c + 1))
-			if (isWhiteSpace(r, c + 1))
-				recursiveFill(r, c + 1);
-			else if (board[r][c + 1].IsNeighboringMine())
-				board[r][c + 1].setExposed(true);
-
-		//Check up
-		if (tileIsInbounds(r - 1, c))
-			if (isWhiteSpace(r - 1, c))
-				recursiveFill(r - 1, c);
-			else if (board[r - 1][c].IsNeighboringMine())
-				board [r - 1][c].setExposed(true);
-
-		//Check down
-		if (tileIsInbounds(r + 1, c))
-			if (isWhiteSpace(r + 1, c))
-				recursiveFill(r + 1, c);
-			else if (board[r + 1][c].IsNeighboringMine())
-				board[r + 1][c].setExposed(true);
+		for(int i = r - 1; i <= r + 1; i++)
+			for(int j = c - 1; j <= c + 1; j++)
+				if (tileIsInbounds(i, j ))
+					if (isWhiteSpace(i, j))
+						recursiveFill(i, j);
+					else if (board[i][j].IsNeighboringMine()
+							&& !board[i][j].isFlagged())
+						board[i][j].setExposed(true);
 	}
 
 	/******************************************************************
@@ -127,6 +115,7 @@ public class MineSweeperGame {
 		while (foundNew){
 			for (int row = 0; row < board.length; row++)
 				for (int col = 0; col < board[0].length; col++){
+
 					if (tileIsInbounds(row, col - 1))
 						if (isWhiteSpace(row, col) && board[row][col].isExposed()) {
 							board[row][col - 1].setExposed(true);
@@ -182,8 +171,9 @@ public class MineSweeperGame {
 	public void reset() {
 		status = GameStatus.NotOverYet;
 		setEmpty();
-		layMines (10);
+		layMines (numMines);
 		setNeighboringMines();
+		start = true;
 	}
 
 	/******************************************************************
@@ -205,9 +195,9 @@ public class MineSweeperGame {
 	private boolean isWhiteSpace(int r, int c){
 		return !board[r][c].isMine()
 				&& !board[r][c].isFlagged()
-				&& !board[r][c].IsNeighboringMine();
+				&& !board[r][c].IsNeighboringMine()
 				//comment out this line if using the non recursive fill
-				//&& !board[r][c].isExposed();
+				&& !board[r][c].isExposed();
 	}
 
 	/******************************************************************
@@ -253,12 +243,30 @@ public class MineSweeperGame {
 				int neighborCount = 0;
 				if(!board[r][c].isMine()) {
 					neighborCount = neighboringMines(r, c);
-					if (neighborCount > 0) {
+					if (neighborCount >= 0) {
 						board[r][c].setIsNeighboringMine(true);
 						board[r][c].setNumNeighboringMines(neighborCount);
 				}
 			}
 		}
+	}
+
+	private void moveMine(int row, int col){
+		boolean moved = false;
+		for (int r = 0; r < board.length; r++) {
+			if (moved)
+				break;
+			else
+				for (int c = 0; c < board[0].length; c++)
+					if(moved)
+						break;
+					else if (board[r][c].getNumNeighboringMines() == 0) {
+						board[r][c].setMine(true);
+						moved = true;
+					}
+		}
+
+		board[row][col].setMine(false);
 	}
 }
 
