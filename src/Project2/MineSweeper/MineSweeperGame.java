@@ -69,6 +69,12 @@ public class MineSweeperGame {
 		}
 	}
 
+	/******************************************************************
+	 * @param r integer representing the row of the selected tile
+	 * @param c integer representing the column of the selected til
+	 *  This method opens up touching white spaces and tiles touching
+	 *  mines
+	 ******************************************************************/
 	public void recursiveFill(int r, int c) {
 		if (tileIsInbounds(r, c))
 			board[r][c].setExposed(true);
@@ -115,8 +121,11 @@ public class MineSweeperGame {
 
 		board[r][c].setExposed(true);
 
+		//This monstrosity cycles the whole board, checks every tile
+		//to see if its touching another one, then runs again if it
+		//finds one
 		while (foundNew){
-			for (int row = 0; row < board.length; row++)     // are only mines left
+			for (int row = 0; row < board.length; row++)
 				for (int col = 0; col < board[0].length; col++){
 					if (tileIsInbounds(row, col - 1))
 						if (isWhiteSpace(row, col) && board[row][col].isExposed()) {
@@ -145,8 +154,14 @@ public class MineSweeperGame {
 			if (!(countExpose > 0))
 				foundNew = false;
 		}
+
 	}
 
+	/******************************************************************
+	 * @param row integer representing the row of the selected tile
+	 * @param col integer representing the column of the selected tile
+	 * This method flags or unflags the inputted tile
+	 *****************************************************************/
 	public void flag(int row, int col) {
 		if(board[row][col].isFlagged())
 			board[row][col].setFlagged(false);
@@ -154,10 +169,16 @@ public class MineSweeperGame {
 		 	board[row][col].setFlagged(true);
 		}
 
+	/******************************************************************
+ 	 * @return the status of the game
+	 ******************************************************************/
 	public GameStatus getGameStatus() {
 		return status;
 	}
 
+	/******************************************************************
+	 * Resets the game
+	 *****************************************************************/
 	public void reset() {
 		status = GameStatus.NotOverYet;
 		setEmpty();
@@ -176,14 +197,23 @@ public class MineSweeperGame {
 				&& row < board.length && col < board[0].length;
 	}
 
+	/******************************************************************
+	 * @param r integer representing the row value of a tile
+	 * @param c integer representing the column value of a tile
+	 * @return true if the board is a blank tile, false if it is not
+	 *****************************************************************/
 	private boolean isWhiteSpace(int r, int c){
 		return !board[r][c].isMine()
 				&& !board[r][c].isFlagged()
-				&& !board[r][c].IsNeighboringMine()
+				&& !board[r][c].IsNeighboringMine();
 				//comment out this line if using the non recursive fill
-				&& !board[r][c].isExposed();
+				//&& !board[r][c].isExposed();
 	}
 
+	/******************************************************************
+	 * @param mineCount integer setting how many mines will be placed
+	 * This is a helper method that uses rng to lay mines in the board
+	 *****************************************************************/
 	private void layMines(int mineCount) {
 		int i = 0;		// ensure all mines are set in place
 
@@ -199,6 +229,12 @@ public class MineSweeperGame {
 		}
 	}
 
+	/*****************************************************************
+	 *
+	 * @param row
+	 * @param col
+	 * @return
+	 */
 	private int neighboringMines(int row, int col){
 		int neighborCount = 0;
 
