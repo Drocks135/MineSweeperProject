@@ -154,8 +154,8 @@ public class MineSweeperPanel extends JPanel {
 						board[r][c].setText("!");
 
 					if (!iCell.isMine()) {
-						if (iCell.getNumNeighboringMines() > 0 && iCell.isExposed()) {
-							board[r][c].setText(Integer.toString(iCell.getNumNeighboringMines()));
+						if (iCell.getNeighbor() > 0 && iCell.isExposed()) {
+							board[r][c].setText(Integer.toString(iCell.getNeighbor()));
 						}
 					}
 				}

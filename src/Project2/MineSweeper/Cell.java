@@ -39,7 +39,7 @@ public class Cell {
         isNeighboringMine = NeighboringMine;
     }
 
-    public int getNumNeighboringMines(){
+    public int getNeighbor(){
         return numNeighboringMines;
     }
 
