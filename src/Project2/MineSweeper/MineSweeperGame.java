@@ -239,7 +239,8 @@ public class MineSweeperGame {
 					neighborCount = neighboringMines(r, c);
 					if (neighborCount > 0) {
 						board[r][c].setIsNeighboringMine(true);
-						board[r][c].setNumNeighboringMines(neighborCount);
+						board[r][c].setNumNeighboringMines
+								(neighborCount);
 					} else if (neighborCount == 0) {
 						board[r][c].setNumNeighboringMines(0);
 						board[r][c].setIsNeighboringMine(false);

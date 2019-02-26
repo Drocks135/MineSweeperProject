@@ -49,7 +49,8 @@ public class MineSweeperPanel extends JPanel {
 
 		// create the board
 		board = new JButton[row][col];
-		center.setLayout(new GridLayout(board.length, board[0].length));
+		center.setLayout(new GridLayout(board.length,
+				board[0].length));
 
 		//instantiate buttons, add listeneres
 		// and add them to the center panel
@@ -155,7 +156,8 @@ public class MineSweeperPanel extends JPanel {
 
 					if (!iCell.isMine()) {
 						if (iCell.getNeighbor() > 0 && iCell.isExposed()) {
-							board[r][c].setText(Integer.toString(iCell.getNeighbor()));
+							board[r][c].setText(
+									Integer.toString(iCell.getNeighbor()));
 						}
 					}
 				}
